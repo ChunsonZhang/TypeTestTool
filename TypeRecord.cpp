@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <iostream>
 #include <fstream>
+#include <cstring>
 #include "TypeRecord.h"
 
 void TypeRecord::InitRecordFile(char* typefile)
@@ -11,12 +12,12 @@ void TypeRecord::InitRecordFile(char* typefile)
     char* loc = strrchr(typefile, '.');
     if (NULL == loc)
     {
-        cout << "ÎÄ¼þ¸ñÊ½´íÎó£¡£¡£¡" << endl;
+        cout << "ï¿½Ä¼ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ó£¡£ï¿½ï¿½ï¿½" << endl;
         return;
     }
     int filenlen = loc - typefile;
     memcpy(RecordFile, typefile, filenlen);
-    snprintf(RecordFile + filenlen, MAX_FILENAME_LEN, "_%lld.rd", t);
+    snprintf(RecordFile + filenlen, MAX_FILENAME_LEN, "_%ld.rd", t);
 }
 
 void TypeRecord::WriteRecordFile(const char* typedata, size_t len)
